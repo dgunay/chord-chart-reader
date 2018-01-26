@@ -26,22 +26,19 @@ abstract class Symbol
 	 */
 	public static function create_symbol(string $symbol)
 	{
-		// TODO: 
-		switch($symbol) { 
-			case preg_match('/^\d/', $symbol): // Time signature
-				return new TimeSignature($symbol);
-				break;
-			case preg_match('/^\w/', $symbol): // Chord
-				return new Chord($symbol);
-				break;
-			case strpos($symbol, '|'): // Barline
-				return new Barline($symbol);
-				break;
-			default:
-				throw new \UnexpectedValueException(
-					"{$symbol} is not a recognized symbol."
-				);
+		if (preg_match('/^\d/', $symbol)) {
+			return new TimeSignature($symbol);
 		}
+		elseif (preg_match('/^\w/', $symbol)) {
+			return new Chord($symbol);
+		}
+		elseif (strpos($symbol, '|') !== false) {
+			return new Barline($symbol);
+		}
+
+		throw new \UnexpectedValueException(
+			"{$symbol} is not a recognized symbol."
+		);
 	}
 
 	/**
@@ -51,5 +48,5 @@ abstract class Symbol
 	 * @param string $symbol
 	 * @return boolean
 	 */
-	abstract protected function is_valid_symbol(string $symbol) : boolean;
+	abstract protected function is_valid_symbol(string $symbol) : bool;
 }

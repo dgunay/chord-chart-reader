@@ -23,16 +23,11 @@ class Parser
 				},
 				explode(' ', trim($line))
 			);
-			for ($i = 0 ; $i < strlen($line) ; $i++) {
-				$char = $line[$i];
-
-				// Beginning of token/symbol?
-
-				// Chord or Bar/time sig?
-				
-				
-				// End of measure?
-
+			
+			foreach ($symbols as $symbol) {
+				$measure = array();
+				if (!($symbol instanceof Barline)) {
+				}
 			}
 
 			$measures = array_merge(
@@ -62,7 +57,7 @@ class Parser
 
 			foreach ($chords as $chord_symbol) {
 				try {
-					$chord = new Chord($chord_symbol);
+					$chord = Symbol::create_symbol($chord_symbol);
 					$piece[$measure_number][] = $chord;
 				}
 				catch (\UnexpectedValueException $e) {
