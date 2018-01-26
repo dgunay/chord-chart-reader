@@ -1,0 +1,18 @@
+{
+    "name": "devin/chord_changes_reader",
+    "description": "Converts plaintext pipe-delimited chord changes to VexTab format.",
+    "type": "project",
+    "license": "GNU GPL v3",
+    "authors": [
+        {
+            "name": "Devin Gunay",
+            "email": "devingunay@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ChordChangesReader\\" : "src/ChordChangesReader/"
+        }
+    }
+}

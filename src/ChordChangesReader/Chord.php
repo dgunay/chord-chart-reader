@@ -1,4 +1,7 @@
 <?php
+
+namespace ChordChangesReader;
+
 class Chord 
 {
 	public $symbol;

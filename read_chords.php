@@ -2,16 +2,18 @@
 /**
  * TODO: what kind of syntax do I want?
  * 
- * 
+ * @author Devin Gunay <devingunay@gmail.com>
  */
 
+use ChordChangesReader\Chord;
 
 if ($argc <= 1) {
 	echo 'Usage: php ' . __FILE__ . ' [file_to_read]' . PHP_EOL;
 	exit;
 }
 
-include('Chord.php');
+include(__DIR__ . '/vendor/autoload.php');
+
 
 $text = file_get_contents($argv[1]);
 
@@ -33,6 +35,7 @@ foreach ($lines as $line) {
 	);
 }
 
+// TODO: use a Progression object to track chords and measures.
 $piece = array();
 $measure_number = 1;
 foreach ($measures as $measure) {
@@ -57,4 +60,4 @@ foreach ($measures as $measure) {
 	$measure_number++;
 }
 
-print_r($piece);
+// TODO: convert the piece into VexTab notation.
