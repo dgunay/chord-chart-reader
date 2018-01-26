@@ -23,17 +23,8 @@ $lines = explode("\n", $text);
 
 $measures = array();
 foreach ($lines as $line) {
-	for ($i = 0 ; $i < strlen($line) ; $i++) {
-		$char = $line[$i];
-
-		// Beginning of token/symbol?
-
-		// Chord or Bar/time sig?
-		
-		
-		// End of measure?
-
-	}
+	// Tokenize the measure
+	
 
 	$measures = array_merge(
 		$measures, 
@@ -66,7 +57,8 @@ foreach ($measures as $measure) {
 			$piece[$measure_number][] = $chord;
 		}
 		catch (\UnexpectedValueException $e) {
-			// don't add it
+			// don't add it to the progression
+			// TODO: scream at the user for passing invalid syntax
 		}
 	}
 
@@ -74,3 +66,4 @@ foreach ($measures as $measure) {
 }
 
 // TODO: convert the piece into VexTab notation.
+print_r($piece);

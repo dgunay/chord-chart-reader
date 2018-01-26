@@ -11,12 +11,18 @@ class Parser
 
 	}
 
-	public function parse()
+	public function parse(string $text)
 	{
 		$lines = explode("\n", $text);
 
 		$measures = array();
 		foreach ($lines as $line) {
+			$symbols = array_map(
+				function($token) {
+					return Symbol::create_symbol($token);
+				},
+				explode(' ', trim($line))
+			);
 			for ($i = 0 ; $i < strlen($line) ; $i++) {
 				$char = $line[$i];
 
