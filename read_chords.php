@@ -7,21 +7,34 @@
 
 use ChordChangesReader\Chord;
 
+
+include(__DIR__ . '/vendor/autoload.php');
+
 if ($argc <= 1) {
 	echo 'Usage: php ' . __FILE__ . ' [file_to_read]' . PHP_EOL;
 	exit;
 }
 
-include(__DIR__ . '/vendor/autoload.php');
-
-
 $text = file_get_contents($argv[1]);
 
+// TODO: use a stream implementation instead
 // TODO: maybe sanitize newlines
 $lines = explode("\n", $text);
 
 $measures = array();
 foreach ($lines as $line) {
+	for ($i = 0 ; $i < strlen($line) ; $i++) {
+		$char = $line[$i];
+
+		// Beginning of token/symbol?
+
+		// Chord or Bar/time sig?
+		
+		
+		// End of measure?
+
+	}
+
 	$measures = array_merge(
 		$measures, 
 		array_values(

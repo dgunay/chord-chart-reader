@@ -20,9 +20,8 @@ class Chord
 	private function is_valid_symbol(string $symbol)
 	{
 		// TODO: what makes a valid chord symbol?
-
 		// Begins with a \w
-
-		return true;
+		// ... that's about it.
+		return \preg_match('/^\w/', $symbol);
 	}
 }
