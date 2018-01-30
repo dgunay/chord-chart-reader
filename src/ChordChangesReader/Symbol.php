@@ -19,7 +19,8 @@ abstract class Symbol
 	}
 
 	/**
-	 * Factory method to determine and create subclasses of Symbol at runtime.
+	 * Factory method to determine and instantiate subclasses of Symbol at
+	 * runtime.
 	 *
 	 * @param string $symbol
 	 * @return Symbol Object extending Symbol
@@ -37,7 +38,7 @@ abstract class Symbol
 		}
 
 		throw new \UnexpectedValueException(
-			"{$symbol} is not a recognized symbol."
+			"'{$symbol}' is not a recognized symbol."
 		);
 	}
 

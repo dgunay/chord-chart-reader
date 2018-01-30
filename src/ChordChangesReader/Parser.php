@@ -21,27 +21,13 @@ class Parser
 				function($token) {
 					return Symbol::create_symbol($token);
 				},
-				explode(' ', trim($line))
-			);
-			
-			foreach ($symbols as $symbol) {
-				$measure = array();
-				if (!($symbol instanceof Barline)) {
-				}
-			}
-
-			$measures = array_merge(
-				$measures, 
-				array_values(
-					array_filter(
-						explode('|', $line),
-						function($token) {
-							return !ctype_space($token);
-						}
-					)
+				array_filter(
+					explode(' ', trim($line))
 				)
 			);
 		}
+
+		
 
 		// TODO: use a Progression object to track chords and measures.
 		$piece = array();
