@@ -27,7 +27,7 @@ class Parser
 			);
 		}
 
-		
+
 
 		// TODO: use a Progression object to track chords and measures.
 		$piece = array();
@@ -54,4 +54,6 @@ class Parser
 			$measure_number++;
 		}
 	}
+
+	
 }
